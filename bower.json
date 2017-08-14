@@ -1,0 +1,15 @@
+{
+  "name": "vue-datepicker",
+  "version": "1.0.0",
+  "description": "datepicker component for Vue.js",
+  "main": "dist/vue-datepicker.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "datepicker"
+  ],
+  "license": "MIT"
+}
