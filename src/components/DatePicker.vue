@@ -65,10 +65,10 @@
 import DatePicker from '../main.js'
 import {format} from '../utils/DateUtil'
 export default {
-  name: 'hello',
+  name: 'date-picker',
   data () {
     return {
-      showDateContent: false,  // 开始日期选择内容框是关闭的
+      showDateContent: false, // 开始日期选择内容框是关闭的
       datepicker: {}
     }
   },

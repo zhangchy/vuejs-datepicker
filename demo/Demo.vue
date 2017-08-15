@@ -4,7 +4,7 @@
   </main>
 </template>
 <script>
-  import DatePicker from '../src/components/DatePicker.vue'
+  import DatePicker from '../src/index.js'
   export default{
     data () {
       return {
