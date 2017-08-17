@@ -1,8 +1,11 @@
 {
   "name": "vue-datepicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "datepicker component for Vue.js",
-  "main": "dist/vue-datepicker.js",
+   "main": [
+    "production/vue-datepicker.js",
+    "production/css/dateRange.scss"
+  ],
   "moduleType": [
     "amd",
     "globals",
@@ -11,5 +14,16 @@
   "keywords": [
     "datepicker"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "authors": [
+    "caihe(1305843198@qq.com)"
+  ],
+  "homepage": "https://github.com/zhangchy/vuejs-datepicker#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }

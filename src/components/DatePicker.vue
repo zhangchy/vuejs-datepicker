@@ -1,7 +1,7 @@
 <template>
-  <div style="z-index: 9999;">
+  <div style="position:relative;">
     <input type="text" @focus="showDateContent=true && datepicker.init()" ref="selectDates"/>
-    <div v-if="showDateContent" class="ta_calendar cf" style="display: block; left: 0px; top: 35px;">
+    <div v-if="showDateContent" class="ta_calendar cf" style="display: block; left: 0px; top: 25px;">
       <div  class="ta_calendar_cont cf">
         <table class="dateRangeDateTable" v-for="(tableValues, tableKey, tableIndex) in datepicker.domMonthDays">
           <caption>{{tableKey}}</caption>
@@ -27,14 +27,16 @@
           </tr>
           <tr v-for="(row, rowIndex) in tableValues.length">
             <td v-for="(item, index) in tableValues[rowIndex]"
-                :class="{'ta_dateRangeGray':item.disabled,
+                :class="{
+                        'ta_dateRangeGray':item.disabled,
                         'ta_dateRangeSelected': (!item.disabled && datepicker.first && datepicker.last && item.value.getTime() > datepicker.first.value.getTime() && item.value.getTime() < datepicker.last.value.getTime()),
                         'onlyOne': (!item.disabled && datepicker.first && !datepicker.last && item.value.getTime() == datepicker.first.value.getTime()),
                         'first': (!item.disabled && datepicker.first && datepicker.last && item.value.getTime() == datepicker.first.value.getTime()),
                         'last': (!item.disabled && datepicker.last && item.value.getTime() == datepicker.last.value.getTime())
                         }"
-                :style="{cursor: item.disabled ? 'default' : 'pointer'}"
-                @click="!item.disabled ? datepicker.selectDate(item) : false"
+                :style="{cursor: (item.disabled || (datepicker.options.dayRangeMax != 0 && datepicker.first && !datepicker.last && (datepicker.first.value.getTime() + (datepicker.options.dayRangeMax - 1) * 24*60*60*1000) < item.value.getTime()))? 'default' : 'pointer'}"
+                :value=item.value
+                @click="!item.disabled && !(item.disabled || (datepicker.options.dayRangeMax != 0 && datepicker.first && !datepicker.last && (datepicker.first.value.getTime() + (datepicker.options.dayRangeMax - 1) * 24*60*60*1000) < item.value.getTime())) ? datepicker.selectDate(item) : false"
             >{{item.text}}</td>
           </tr>
           </tbody>
@@ -89,12 +91,33 @@ export default {
       if (!date) return ''
       return format(date, 'yyyy-MM-dd')
     },
-    submitDates: () => {
+    submitDates: function () {
       this.showDateContent = false
-      this.$refs.selectDates.value = this.formatDate(this.datepicker.first ? this.datepicker.first.value : null) + '-' + this.formatDate(this.datepicker.last ? this.datepicker.last.value : null)
+      let datesResult = {
+        dates: [],
+        range: '',
+        startDate: null,
+        endDate: null
+      }
+      let first = document.getElementsByClassName('first')[0].getAttribute('value')
+      datesResult.dates.push(first)
+      datesResult.startDate = first
+
+      let selects = document.getElementsByClassName('ta_dateRangeSelected')
+      for (let select of selects) {
+        datesResult.dates.push(select.getAttribute('value'))
+      }
+      let last = document.getElementsByClassName('last')[0].getAttribute('value')
+      datesResult.dates.push(last)
+      datesResult.endDate = last
+
+      let range = this.formatDate(this.datepicker.first ? this.datepicker.first.value : null) + '-' + this.formatDate(this.datepicker.last ? this.datepicker.last.value : null)
+      datesResult.range = range
+      this.$refs.selectDates.value = range
+      this.$emit('complete', datesResult)
     }
   },
-  props: ['options'],
+  props: ['options', 'datesResult'],
   created () {
     this.datepicker = new DatePicker(this.options)
   },
@@ -103,24 +126,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>

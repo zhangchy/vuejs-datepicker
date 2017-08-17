@@ -11,7 +11,15 @@ import {initPreNext} from './preNext.js'
 function DatePicker (options) {
   this.options = config.options
   for (let property in options) {
-    this.options[property] = options[property]
+    if (property === 'datesDisable') {
+      this.options[property] = []
+      for (let date of options[property]) {
+        let current = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+        this.options[property].push(current.getTime())
+      }
+    } else {
+      this.options[property] = options[property]
+    }
   }
   this.weeks = config.weeks
   this.first = null

@@ -7,7 +7,7 @@ export function DomDateItem () {
   this.disabled = false
 }
 
-function getDomMonthDays (date, maxDate, minDate) {
+function getDomMonthDays (date, options) {
   var domDates = []
 
   // 当月第一天
@@ -35,8 +35,10 @@ function getDomMonthDays (date, maxDate, minDate) {
       domDateItem.value = currentD
       // 当前日期之前的日期
       if (currentD.getTime() < firstDayOfMonth.getTime() || currentD.getTime() > lastDayOfMonth.getTime() ||
-        (maxDate && maxDate.getTime() < currentD.getTime()) ||
-        (minDate && minDate.getTime() > currentD.getTime())) {
+        (options.maxDate && options.maxDate.getTime() < currentD.getTime()) ||
+        (options.minDate && options.minDate.getTime() > currentD.getTime()) ||
+        (options.weekDisable && (index % 7 === 0 || index % 7 === 6)) ||
+        (options.datesDisable.indexOf(currentD.getTime()) !== -1)) {
         domDateItem.disabled = true
       }
       rowDomDates.push(domDateItem)
@@ -53,8 +55,6 @@ function getDomMonthDays (date, maxDate, minDate) {
 
 export function initMixin (DatePicker) {
   DatePicker.prototype.initDom = function (startDate, endDate) {
-    let maxDate = this.options.maxDate
-    let minDate = this.options.minDate
     if (startDate.getTime() > endDate.getTime()) {
       let flag = startDate
       startDate = endDate
@@ -68,12 +68,12 @@ export function initMixin (DatePicker) {
 
     if (startDate.getFullYear() === endDate.getFullYear() && startDate.getMonth() === endDate.getMonth()
     ) {
-      domMonthDays1 = getDomMonthDays(this._startDate, maxDate, minDate)
+      domMonthDays1 = getDomMonthDays(this._startDate, this.options)
       this._endDate.setMonth(this._endDate.getMonth() + 1)
-      domMonthDays2 = getDomMonthDays(this._endDate, maxDate, minDate)
+      domMonthDays2 = getDomMonthDays(this._endDate, this.options)
     } else {
-      domMonthDays1 = getDomMonthDays(this._startDate, maxDate, minDate)
-      domMonthDays2 = getDomMonthDays(this._endDate, maxDate, minDate)
+      domMonthDays1 = getDomMonthDays(this._startDate, this.options)
+      domMonthDays2 = getDomMonthDays(this._endDate, this.options)
     }
     this.domMonthDays = {}
     this.domMonthDays[this._startDate.getFullYear() + '/' + (this._startDate.getMonth() + 1)] = domMonthDays1

@@ -15,8 +15,9 @@
   background-clip: padding-box;
   font-size:12px;
   text-align:left;
-  position:absolute;
-  z-index:100;
+  top: 25px;
+  position: absolute;
+  z-index: 9999;
 }
 .i_pre, .i_next, .ta_calendar td.ta_dateRangeSelected, .ta_calendar td.first, .ta_calendar td.last, .ta_calendar td.onlyOne{
   background:url(../images/calendar_all.png) no-repeat;
