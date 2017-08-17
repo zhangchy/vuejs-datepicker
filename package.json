@@ -1,6 +1,6 @@
 {
   "name": "vue-datepicker-easy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "datepicker component for Vue.js",
   "main": "dist/vue-datepicker.js",
   "author": "caihe(1305843198@qq.com)",
