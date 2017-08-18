@@ -9,7 +9,7 @@ import {initSelectDate} from './select.js'
 import {initPreNext} from './preNext.js'
 
 function DatePicker (options) {
-  this.options = config.options
+  this.options = Object.assign({}, config.options)
   for (let property in options) {
     if (property === 'datesDisable') {
       this.options[property] = []
@@ -24,6 +24,11 @@ function DatePicker (options) {
   this.weeks = config.weeks
   this.first = null
   this.last = null
+  this.startDate = this.options.startDate
+  this.endDate = this.options.endDate
+  this.date = this.options.date
+  /* this.showOneMonth = null
+  this.showTwoMonth = null */
   this.init()
 }
 

@@ -50,6 +50,7 @@ export function initSelectDate (DatePicker) {
 
   DatePicker.prototype.clear = function () {
     let self = this
+    self.date = null
     self.startDate = null
     self.endDate = null
     self.first = null

@@ -65,23 +65,44 @@ export function initMixin (DatePicker) {
     let domMonthDays2 = {}
     this._startDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1)
     this._endDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1)
-
-    if (startDate.getFullYear() === endDate.getFullYear() && startDate.getMonth() === endDate.getMonth()
-    ) {
+    /* if (this.showOneMonth) {
+      let one = this.showOneMonth.split('/')
+      let oneDate = new Date(one[0], one[1] - 1, 1)
+      domMonthDays1 = getDomMonthDays(oneDate, this.options)
+      let two = this.showTwoMonth.split('/')
+      let twoDate = new Date(two[0], two[1] - 1, 1)
+      domMonthDays2 = getDomMonthDays(twoDate, this.options)
+      this.domMonthDays = {}
+      this.domMonthDays[this.showOneMonth] = domMonthDays1
+      this.domMonthDays[this.showTwoMonth] = domMonthDays2
+    } else { */
+    if (this.options.calendars !== 2) {
       domMonthDays1 = getDomMonthDays(this._startDate, this.options)
-      this._endDate.setMonth(this._endDate.getMonth() + 1)
-      domMonthDays2 = getDomMonthDays(this._endDate, this.options)
+      this.domMonthDays = {}
+      this.domMonthDays[this._startDate.getFullYear() + '/' + (this._startDate.getMonth() + 1)] = domMonthDays1
     } else {
-      domMonthDays1 = getDomMonthDays(this._startDate, this.options)
-      domMonthDays2 = getDomMonthDays(this._endDate, this.options)
+      if (startDate.getFullYear() === endDate.getFullYear() && startDate.getMonth() === endDate.getMonth()
+      ) {
+        domMonthDays1 = getDomMonthDays(this._startDate, this.options)
+        this._endDate.setMonth(this._endDate.getMonth() + 1)
+        domMonthDays2 = getDomMonthDays(this._endDate, this.options)
+      } else {
+        domMonthDays1 = getDomMonthDays(this._startDate, this.options)
+        domMonthDays2 = getDomMonthDays(this._endDate, this.options)
+      }
+      this.domMonthDays = {}
+      this.domMonthDays[this._startDate.getFullYear() + '/' + (this._startDate.getMonth() + 1)] = domMonthDays1
+      this.domMonthDays[this._endDate.getFullYear() + '/' + (this._endDate.getMonth() + 1)] = domMonthDays2
     }
-    this.domMonthDays = {}
-    this.domMonthDays[this._startDate.getFullYear() + '/' + (this._startDate.getMonth() + 1)] = domMonthDays1
-    this.domMonthDays[this._endDate.getFullYear() + '/' + (this._endDate.getMonth() + 1)] = domMonthDays2
+    /* } */
   }
   DatePicker.prototype.init = function () {
-    let startDate = this.options.startDate
-    let endDate = this.options.endDate
+    let startDate = this.startDate ? this.startDate : this.options.startDate
+    let endDate = this.endDate ? this.endDate : this.options.endDate
+    if (this.options.onlyOneDay) {
+      startDate = this.date ? this.date : this.options.date
+      endDate = this.date ? this.date : this.options.date
+    }
     this.initDom(startDate, endDate)
     this.initSelectedDate(startDate, endDate)
     return true
