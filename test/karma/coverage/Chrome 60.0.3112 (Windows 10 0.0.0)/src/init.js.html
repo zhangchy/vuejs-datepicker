@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\init.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> init.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.32% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>56/62</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.21% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>32/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.32% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>56/62</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109×</span>
+<span class="cline-any cline-yes">109×</span>
+<span class="cline-any cline-yes">109×</span>
+<span class="cline-any cline-yes">109×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-yes">105×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">let _id = 0
+&nbsp;
+export function DomDateItem () {
+  this._id = _id++
+  this.text = ''
+  this.value = ''
+  this.disabled = false
+}
+&nbsp;
+function getDomMonthDays (date, options) {
+  var domDates = []
+&nbsp;
+  // 当月第一天
+  let firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1)
+  let domDateBegin = new Date(date.getFullYear(), date.getMonth(), 1)
+  // 获取当前的星期
+  var w = domDateBegin.getDay()
+  // 计算应该开始的日期
+  domDateBegin.setDate(1 - w)
+&nbsp;
+  // 当月最后一天
+  var lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0)
+  var domDateEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0)
+  w = domDateEnd.getDay()
+  // 计算应该结束的日期
+  domDateEnd.setDate(domDateEnd.getDate() + 6 - w)
+&nbsp;
+  let index = 0
+  let rowDomDates = []
+  for (let d = domDateBegin; d.getTime() &lt;= domDateEnd.getTime(); d.setDate(d.getDate() + 1)) {
+    (function () {
+      var currentD = new Date(d.getTime())
+      let domDateItem = new DomDateItem()
+      domDateItem.text = currentD.getDate()
+      domDateItem.value = currentD
+      // 当前日期之前的日期
+      if (currentD.getTime() &lt; firstDayOfMonth.getTime() || currentD.getTime() &gt; lastDayOfMonth.getTime() ||
+        (options.maxDate &amp;&amp; options.maxDate.getTime() &lt; currentD.getTime()) ||
+        (options.minDate &amp;&amp; options.minDate.getTime() &gt; currentD.getTime()) ||
+        (options.weekDisable &amp;&amp; (index % 7 === 0 || index % 7 === 6)) ||
+        (options.datesDisable.indexOf(currentD.getTime()) !== -1)) {
+        domDateItem.disabled = true
+      }
+      rowDomDates.push(domDateItem)
+      index % 7 === 6 ? domDates.push(rowDomDates) : false
+      index % 7 === 6 &amp;&amp; index &gt;= 6 ? rowDomDates = [] : false
+      index++
+    })()
+  }
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (rowDomDates.length !== 0) {
+<span class="cstat-no" title="statement not covered" >    domDates.push(rowDomDates)</span>
+  }
+  return domDates
+}
+&nbsp;
+export function initMixin (DatePicker) {
+  DatePicker.prototype.initDom = function (startDate, endDate) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (startDate.getTime() &gt; endDate.getTime()) {
+      let flag = <span class="cstat-no" title="statement not covered" >startDate</span>
+<span class="cstat-no" title="statement not covered" >      startDate = endDate</span>
+<span class="cstat-no" title="statement not covered" >      endDate = flag</span>
+    }
+&nbsp;
+    let domMonthDays1 = {}
+    let domMonthDays2 = {}
+    this._startDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1)
+    this._endDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1)
+    /* if (this.showOneMonth) {
+      let one = this.showOneMonth.split('/')
+      let oneDate = new Date(one[0], one[1] - 1, 1)
+      domMonthDays1 = getDomMonthDays(oneDate, this.options)
+      let two = this.showTwoMonth.split('/')
+      let twoDate = new Date(two[0], two[1] - 1, 1)
+      domMonthDays2 = getDomMonthDays(twoDate, this.options)
+      this.domMonthDays = {}
+      this.domMonthDays[this.showOneMonth] = domMonthDays1
+      this.domMonthDays[this.showTwoMonth] = domMonthDays2
+    } else { */
+    if (this.options.calendars !== 2) {
+      domMonthDays1 = getDomMonthDays(this._startDate, this.options)
+      this.domMonthDays = {}
+      this.domMonthDays[this._startDate.getFullYear() + '/' + (this._startDate.getMonth() + 1)] = domMonthDays1
+    } else {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (startDate.getFullYear() === endDate.getFullYear() &amp;&amp; startDate.getMonth() === endDate.getMonth()
+      ) {
+        domMonthDays1 = getDomMonthDays(this._startDate, this.options)
+        this._endDate.setMonth(this._endDate.getMonth() + 1)
+        domMonthDays2 = getDomMonthDays(this._endDate, this.options)
+      } else {
+<span class="cstat-no" title="statement not covered" >        domMonthDays1 = getDomMonthDays(this._startDate, this.options)</span>
+<span class="cstat-no" title="statement not covered" >        domMonthDays2 = getDomMonthDays(this._endDate, this.options)</span>
+      }
+      this.domMonthDays = {}
+      this.domMonthDays[this._startDate.getFullYear() + '/' + (this._startDate.getMonth() + 1)] = domMonthDays1
+      this.domMonthDays[this._endDate.getFullYear() + '/' + (this._endDate.getMonth() + 1)] = domMonthDays2
+    }
+    /* } */
+  }
+  DatePicker.prototype.init = function () {
+    let startDate = this.startDate ? this.startDate : this.options.startDate
+    let endDate = this.endDate ? this.endDate : <span class="branch-1 cbranch-no" title="branch not covered" >this.options.endDate</span>
+    if (this.options.onlyOneDay) {
+      startDate = this.date ? this.date : <span class="branch-1 cbranch-no" title="branch not covered" >this.options.date</span>
+      endDate = this.date ? this.date : <span class="branch-1 cbranch-no" title="branch not covered" >this.options.date</span>
+    }
+    this.initDom(startDate, endDate)
+    this.initSelectedDate(startDate, endDate)
+    return true
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 25 2017 11:01:15 GMT+0800 (中国标准时间)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

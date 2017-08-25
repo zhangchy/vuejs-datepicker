@@ -1,8 +1,11 @@
 <template>
-  <main>
+  <div id="app">
     <date-picker :options="options1" id="test1" @complete='completeCb'></date-picker>
     <date-picker :options="options2" id="test2" @complete='completeCb'></date-picker>
-  </main>
+    <div class="onlyOne">
+
+    </div>
+  </div>
 </template>
 <script>
   import DatePicker from '../src/index.js'

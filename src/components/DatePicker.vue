@@ -1,5 +1,5 @@
 <template>
-  <div style="position:relative;" >
+  <div style="position:relative;" class="datepicker">
     <input type="text" @focus="openContent()" ref="selectDates"/>
     <div  v-show="showDateContent" class="ta_calendar cf" style="display: none; left: 0px; top: 25px;">
       <div  class="ta_calendar_cont cf">
