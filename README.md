@@ -1,4 +1,4 @@
-# vuejs-datepicker
+# vue-datepicker-easy
 
 > datepicker component for Vue.js.
 
