@@ -9,7 +9,8 @@
     "dev": "node build/dev-server.js",
     "demo": "cross-env NODE_ENV=demo node build/build-demo.js",
     "build": "cross-env NODE_ENV=production node build/build-pro.js",
-    "test": "cross-env NODE_ENV=test node test/e2e/runner.js",
+    "test": "cross-env NODE_ENV=test & karma start test/karma/karma.conf.js --single-run",
+    "karma": "karma start test/karma/karma.conf.js --single-run",
     "lint": "eslint --ext .js,.vue src",
     "rollup": "cross-env NODE_ENV=production rollup -c"
   },
